@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.product.dao.ProductDAO">
+	<select id="getProductCnt" resultType="int">
+		SELECT COUNT(P_NO) FROM PRODUCT
+	</select>
+	
+	<select id="getProductList" resultType="pdto">
+		SELECT * FROM
+			(SELECT ROWNUM AS RR, A.*
+			FROM
+				(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+				FROM PRODUCT
+				ORDER BY P_NO DESC) A)
+				WHERE RR BETWEEN #{start} and #{end}
+	</select>
+	
+	<insert id="insertProduct" parameterType="pdto">
+		<selectKey keyProperty="p_no" order="BEFORE" resultType="int">
+			SELECT NVL(MAX(p_no),0)+1 FROM PRODUCT
+		</selectKey>
+			INSERT INTO PRODUCT(P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, writer)
+			VALUES(#{p_no}, #{stock}, #{price}, #{p_name}, #{detail}, SYSDATE, #{image}, #{path}, #{state}, #{writer})
+	</insert>
+	
+	<select id="getProduct" resultType="pdto">
+		SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+		FROM PRODUCT
+		WHERE P_NO=#{p_no}
+	</select>
+	
+	<update id="updateProduct" parameterType="pdto">
+		UPDATE PRODUCT SET 
+		STOCK = #{stock}, 
+		PRICE = #{price}, 
+		P_NAME = #{p_name}, 
+		DETAIL = #{detail}, 
+		STATE = #{state},
+		WRITER = #{writer},
+		PR_DATE = sysdate,
+		<if test="image!=null">
+		IMAGE = #{image}, 
+		</if>
+		PATH = #{path} 
+		WHERE P_NO = #{p_no}
+	</update>
+	
+	<delete id="productDel" parameterType="pdto">
+		DELETE FROM PRODUCT WHERE P_NO = #{p_no}
+	</delete>
+	
+	<select id="getProducts" parameterType="map">
+		SELECT * FROM
+			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+			FROM
+				(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+				FROM PRODUCT
+				<if test='!state.equals("all")'>
+					WHERE STATE = #{state}
+				</if>
+				<choose>
+					<when test="flag==null">
+						ORDER BY P_NO) A)
+					</when>
+					<when test='flag.equals("low")'>
+						ORDER BY PRICE) A)
+					</when>
+					<when test='flag.equals("high")'>
+						ORDER BY PRICE DESC) A)
+					</when>
+		</choose>
+		WHERE RR BETWEEN #{start} and #{end}
+	</select>
+	
+	<select id="getBestList" parameterType="map">
+		SELECT * FROM
+		(SELECT SUM(B.QUANTITY) AS COUNT, A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
+		FROM PRODUCT A
+		INNER JOIN ORDERT B
+		ON A.P_NO = B.P_NO
+		GROUP BY A.P_NO, A.STOCK, A.PRICE, A.P_NAME, A.DETAIL, A.PR_DATE, A.IMAGE, A.PATH, A.STATE, A.WRITER
+		<choose>
+			<when test="flag==null">
+				ORDER BY COUNT DESC)
+			</when>
+			<when test='flag.equals("low")'>
+				ORDER BY A.PRICE)
+			</when>
+			<when test='flag.equals("high")'>
+				ORDER BY A.PRICE DESC)
+			</when>
+		</choose>
+		        WHERE <![CDATA[rownum <= 8]]>
+	</select>
+	
+	<select id="ProductTot" parameterType="map" resultType="int">
+		SELECT COUNT(P_NO) FROM PRODUCT
+		<if test='!state.equals("all")'>
+			WHERE STATE = #{state}
+		</if>
+	</select>
+	
+	<select id="bookSearch" parameterType="pdto">
+		SELECT * FROM
+			(SELECT ROWNUM AS RR, P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+			FROM
+				(SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH, STATE, WRITER
+				FROM  PRODUCT
+				WHERE
+				P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
+				<choose>
+					<when test="flag==null">
+						ORDER BY P_NO) A)
+					</when>
+					<when test='flag.equals("low")'>
+						ORDER BY PRICE) A)
+					</when>
+					<when test='flag.equals("high")'>
+						ORDER BY PRICE DESC) A)
+					</when>
+		</choose>
+		WHERE RR BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="getSearch" parameterType="map" resultType="int">
+		SELECT COUNT(P_NO) FROM PRODUCT
+		WHERE
+		P_NAME LIKE '%'||#{searchText}||'%'	OR WRITER LIKE '%'||#{searchText}||'%'
+	</select>
+	
+	<update id="updateStocks" parameterType="list">
+		<foreach collection="list" item="ovo" index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE PRODUCT
+			SET STOCK = STOCK-#{ovo.quantity}
+			<where>
+				P_NO = #{ovo.p_no}
+			</where>
+		</foreach>
+	</update>
+	
+	<select id="wordSearchSHow" parameterType="pdto">
+		SELECT * FROM
+		(SELECT P_NAME FROM PRODUCT
+		WHERE 
+		P_NAME LIKE '%'||#{searchText}||'%')
+		WHERE <![CDATA[rownum <= 5]]>
+	</select>
+	
+</mapper>
