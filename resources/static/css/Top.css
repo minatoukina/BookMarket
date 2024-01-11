@@ -1,0 +1,193 @@
+@charset "UTF-8";
+#TopMenuBox a:link{color: white; text-decoration: none; font-weight: bold;}
+#TopMenuBox a:visited{color: white; text-decoration: none; font-weight: bold;}
+#TopMenuBox a:active{color: white; text-decoration: none; font-weight: bold;}
+#TopMenuBox a:hover{color: white; text-decoration: none; font-weight: bold;}
+#MainMenu a:link{color: #237AF6; text-decoration: none; font-weight: bold;}
+#MainMenu a:visited{color: #237AF6; text-decoration: none; font-weight: bold;}
+#MainMenu a:active{color: #237AF6; text-decoration: none; font-weight: bold;}
+#MainMenu a:hover{color: #237AF6; text-decoration: none; font-weight: bold;}
+#search input:focus {outline: none;} /* outline 테두리 없애기 */
+#TopMenuBox {
+	height: 40px;
+	width: 100%;
+	background-color: #237AF6;
+}
+#TopMenuBox table {
+	margin-left: 1180px;
+	height: 40px;
+	width: 500px;
+	font-size: 15px;
+	color: white;
+}
+#logo {
+	margin: 30px 80px 20px 50px;
+	float: left;
+	width: 150px;
+	height: 150px;
+}
+#mid {
+	margin: 0 auto;
+	width: 1000px;
+	height: 280px;
+}
+#mid_top {
+	width: 1000px;
+	margin: 0 auto;
+	height: 200px;
+}
+#search {
+	margin: 90px 10px 45px 0;
+	display: inline-block;
+	height: 42px;
+	width: 655px;
+	border: solid 4px #00008B;
+	position: absolute;
+}
+#search input{
+	font-size: 18px;
+	position: absolute;
+	height: 38px;
+	width: 600px;
+	border: none;
+}
+#searchIcon {
+	margin-left: 600px;
+	height: 39px;
+}
+#displayList {
+	background-color: white;
+	display: inline-block;
+	border: solid 2px #cccccc;
+	top: 140px;
+	width: 659px;
+	height: auto;
+	position: relative;
+	z-index: 999;
+}
+#displayList .autoText {
+	display: inline-block;
+	padding: 5px;
+	width: 98.5%;
+	cursor: pointer;
+}
+#displayList > span:hover{
+	background-color: #cccccc;
+	font-weight: bold;
+}
+*{
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #57523E;
+}
+
+#menu{
+  position:relative; 
+  z-index: 99; 
+  background-color: white;
+  height: 80px;
+  text-align: center;
+  width: 1000px;
+  text-align: center;
+}
+
+[class*="main"] {
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+}
+
+[class*="main"] ul {
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #57523E;
+}
+.main1{
+  padding-left: 0px;
+   height: 100%;
+  width: 1000px;
+  margin: 0 auto;
+  display: inline-block;
+}
+.main1>li {
+  float: left;
+  width: 14.2%;
+  line-height: 50px;
+  position: relative;
+}
+.main1>li:hover .main2 {
+  left: 0;
+}
+.main1>li a {
+  display: block;
+}
+.main1>li a:hover {
+  font-weight: bold;
+}
+.main2 {
+  width:110%;
+  position: absolute;
+  top: 50px;
+  left: -9999px;
+  width: 100%;
+  padding: 0px;
+}
+.main1>li:hover {
+  border-bottom: 5px solid #D94C1A;
+}
+.main2 li:hover {
+  border-left: 5px solid #D94C1A;
+}
+
+.main2>li {
+  position: relative;
+}
+.main2>li:hover .main3 {
+  left: 100%;
+}
+.main2>li a, .main3>li a {
+  border-radius: 10px;
+  margin: 10px;
+}
+.main3 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: -9999px;
+  padding: 0px;
+}
+nav {
+  margin-top: 20px;
+}
+#side {
+	position: fixed; 
+	right: 0px; 
+	top: 60px; 
+	text-align:center;
+	width: 100px;
+}
+#sidebar {
+    width: 160px;
+    position: fixed;
+    top: 250px;	
+    right: 200px;
+}
+#sidebar.active {
+    right: -200px;
+}
+#sideBanner #sidebarCollapse {
+	position: fixed;
+	top: 270px;
+	right: 200px;
+	border: none;
+	background-color: white;
+}
+#sort td{
+	padding-right: 50px;
+	text-align: right;
+	height: 50px;
+}
+#sort a:link{color: black; text-decoration: none;}
+#sort a:checked{color: black; text-decoration: none; font-weight: bold;}
+#sort a:active{color: #00008B; text-decoration: none; font-weight: bold;}
+#sort a:hover{color: #00008B; text-decoration: none; font-weight: bold;}

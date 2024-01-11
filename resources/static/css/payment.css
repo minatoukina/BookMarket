@@ -1,0 +1,287 @@
+@charset "UTF-8";
+#payment {
+	width: 1000px;
+	height: auto;
+	margin: 20px auto;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
+}
+#payment h2{
+	text-align: center;
+	margin: 20px;
+}
+#payment #p_address {
+	width: 700px;
+	height: 150px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payment .p_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+#payment .p_inner {
+	padding: 10px;
+}
+#payment .p_inner span {
+	display: block;
+	height: 30px;	
+}
+#payment #p_info {
+	width: 700px;
+	height: auto;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payment #p_info .inimg{
+	width: 100px;
+	height: 140px;
+	border: 1px solid #dddddd;
+	padding: 3px;
+	display: inline-block;
+	margin-right: 30px;
+}
+#payment #p_info .p_con{
+	display: inline-block;
+}
+#payment #p_info .p_con .price{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1088ED;
+}
+#payment #p_info .p_con .pname{
+	font-size: 18px;
+	font-weight: bold;
+}
+#paybtn {
+	width: 200px;
+	margin: 20px auto;
+	text-align: center;
+}
+#paybtn button{
+	width: 200px;
+	height: 40px;
+	font-weight: bold;
+	color: white;
+	background-color: #1088ED;
+	border: none;
+	border-radius: 10px;
+}
+#payment #payTot {
+	width: 700px;
+	height: 40px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payment #payTot #t_inner {
+	padding: 8px 5px 5px 480px;	
+}
+#payment #payTot #t_inner span {
+	color: #1088ED;	
+}
+#cartPayment {
+	width: 1000px;
+	height: auto;
+	margin: 20px auto;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
+}
+#cartPayment h2{
+	text-align: center;
+	margin: 20px;
+}
+#cartPayment #p_address {
+	width: 700px;
+	height: 150px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#cartPayment .p_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+#cartPayment .p_inner {
+	padding: 10px;
+}
+#cartPayment .p_inner span {
+	display: block;
+	height: 30px;	
+}
+#cartPayment #p_info {
+	width: 700px;
+	height: auto;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#cartPayment #p_info .p_con .price{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1088ED;
+}
+#cartPayment #p_info .p_con {
+	background-color: #eeeeee;
+	margin: 10px;
+	padding: 10px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+#cartPayment #p_info .p_con .pname{
+	font-size: 18px;
+	font-weight: bold;
+}
+#cartPayment #payTot {
+	width: 700px;
+	height: 40px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#cartPayment #payTot #t_inner {
+	padding: 8px 5px 5px 480px;	
+}
+#cartPayment #payTot #t_inner span {
+	color: #1088ED;	
+}
+
+
+
+/*결제완료 페이지*/
+#orderDone{
+   text-align: center;
+   width: 650px;
+   height: 500px;
+   margin: 0 auto;
+   background-color: #eeeeee;
+   border-radius: 7px;
+}
+
+.headDiv, .orderNotice, .orderContact{
+   padding: 30px 0;
+}
+
+.checkImgBox{
+   padding-top: 45px;
+}
+
+.checkImg{
+   width: 75px;
+   height: 75px;
+}
+
+.Completion{
+   width: 600px;
+   margin: 0 auto;
+   background-color: #042958;
+   color: #fefae9;
+   height: 70px;
+   line-height: 70px;
+   font-size: 18px;
+}
+
+#return{
+   width: 1024px;
+   height: 100px;
+   margin: 0 auto;
+}
+
+#return .mainHome{
+	font-weight: bold;
+	background-color: #237AF6;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+
+#return .mainHome:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+/* 주문취소 페이지 */
+#payCancle {
+	width: 1000px;
+	height: auto;
+	margin: 20px auto;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
+}
+#payCancle h2{
+	text-align: center;
+	margin: 20px;
+}
+#payCancle #p_address {
+	width: 700px;
+	height: 150px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payCancle .p_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+#payCancle .p_inner {
+	padding: 10px;
+}
+#payCancle .p_inner span {
+	display: block;
+	height: 30px;	
+}
+#payCancle #p_info {
+	width: 700px;
+	height: auto;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payCancle #p_info .p_con .price{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1088ED;
+}
+#payCancle #p_info .p_con {
+	background-color: #eeeeee;
+	margin: 10px;
+	padding: 10px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+#payCancle #p_info .p_con .pname{
+	font-size: 18px;
+	font-weight: bold;
+}
+#payCancle #payTot {
+	width: 700px;
+	height: 40px;
+	border: 1px solid #dddddd;
+	background-color: white;
+	padding: 10px;
+	margin: 10px auto;
+}
+#payCancle #payTot #t_inner {
+	padding: 8px 5px 5px 480px;	
+}
+#payCancle #payTot #t_inner span {
+	color: #1088ED;	
+}
